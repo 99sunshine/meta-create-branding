@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta-Create | Brand Identity Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* === PRIMARY PALETTE === */
+  --flame-core: #FF6B35;
+  --flame-bright: #FF8C42;
+  --flame-glow: #FFA559;
+  --ember: #E85D26;
+  
+  /* === SECONDARY: COSMOS === */
+  --cosmos-deep: #0A0E27;
+  --cosmos-mid: #141B3D;
+  --cosmos-light: #1E2A5E;
+  --starlight: #A8B4E0;
+  
+  /* === ACCENT: AURORA === */
+  --aurora-teal: #00C9A7;
+  --aurora-cyan: #00D4FF;
+  --aurora-violet: #845EC2;
+  
+  /* === NEUTRALS === */
+  --white: #FFFFFF;
+  --off-white: #F7F5F2;
+  --warm-gray: #B8AFA6;
+  --mid-gray: #6B6560;
+  --charcoal: #2D2926;
+  
+  /* === FUNCTIONAL === */
+  --success: #00C9A7;
+  --warning: #FFB830;
+  --error: #FF4757;
+  --info: #00D4FF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Sora', 'Noto Sans SC', sans-serif;
+  background: var(--cosmos-deep);
+  color: var(--off-white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* === NAVIGATION === */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 14, 39, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+nav .logo-text {
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--flame-core), var(--flame-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav .nav-links a {
+  color: var(--starlight);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav .nav-links a:hover {
+  color: var(--flame-core);
+}
+
+/* === HERO === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(255,107,53,0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 30%, rgba(0,201,167,0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 80%, rgba(132,94,194,0.04) 0%, transparent 50%);
+  animation: nebula 20s ease-in-out infinite alternate;
+}
+
+@keyframes nebula {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-3%, 2%) scale(1.05); }
+}
+
+.hero-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--flame-core);
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 400;
+  line-height: 1.05;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero h1 .gradient-text {
+  background: linear-gradient(135deg, var(--flame-core) 0%, var(--flame-bright) 30%, var(--aurora-teal) 70%, var(--aurora-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--starlight);
+  margin-top: 1.5rem;
+  font-weight: 300;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.7s forwards;
+}
+
+.hero-chinese {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 1rem;
+  color: var(--warm-gray);
+  margin-top: 0.75rem;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === SECTIONS === */
+.section {
+  padding: 6rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--flame-core);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--starlight);
+  max-width: 700px;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+/* === DIVIDER === */
+.divider {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,107,53,0.3), transparent);
+}
+
+/* === BRAND ESSENCE === */
+.essence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.essence-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,107,53,0.1);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.essence-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--flame-core), var(--aurora-teal));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.essence-card:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,107,53,0.25);
+  transform: translateY(-4px);
+}
+
+.essence-card:hover::before {
+  opacity: 1;
+}
+
+.essence-icon {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.essence-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.essence-card .cn {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+  margin-bottom: 1rem;
+}
+
+.essence-card p {
+  font-size: 0.9rem;
+  color: var(--starlight);
+  line-height: 1.6;
+}
+
+/* === LOGO SECTION === */
+.logo-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.logo-box {
+  border-radius: 20px;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  position: relative;
+}
+
+.logo-box.dark {
+  background: var(--cosmos-mid);
+  border: 1px solid rgba(255,107,53,0.15);
+}
+
+.logo-box.light {
+  background: var(--off-white);
+}
+
+.logo-box .label {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo-box.dark .label { color: var(--warm-gray); }
+.logo-box.light .label { color: var(--mid-gray); }
+
+.logo-svg {
+  width: 260px;
+  height: auto;
+}
+
+/* === COLOR PALETTE === */
+.palette-section {
+  margin-bottom: 3rem;
+}
+
+.palette-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.palette-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.color-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.color-swatch {
+  height: 110px;
+  position: relative;
+}
+
+.color-info {
+  padding: 1rem;
+  background: rgba(255,255,255,0.02);
+}
+
+.color-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.color-hex {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--warm-gray);
+}
+
+.color-cn {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.7rem;
+  color: var(--mid-gray);
+  margin-top: 0.25rem;
+}
+
+/* === TYPOGRAPHY === */
+.type-specimen {
+  margin-bottom: 3rem;
+}
+
+.type-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: baseline;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.type-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--warm-gray);
+  letter-spacing: 1px;
+}
+
+.type-meta .weight { color: var(--flame-core); }
+
+.type-sample-sora {
+  font-family: 'Sora', sans-serif;
+}
+
+.type-sample-noto {
+  font-family: 'Noto Sans SC', sans-serif;
+}
+
+.type-sample-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.type-sample-display {
+  font-family: 'DM Serif Display', serif;
+}
+
+/* === USAGE GUIDELINES === */
+.usage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.usage-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.usage-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.usage-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.usage-card li {
+  font-size: 0.88rem;
+  color: var(--starlight);
+  padding: 0.4rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.usage-card li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--flame-core);
+  font-size: 0.8rem;
+}
+
+.do-card { border-color: rgba(0,201,167,0.2); }
+.do-card h4 { color: var(--aurora-teal); }
+
+.dont-card { border-color: rgba(255,71,87,0.2); }
+.dont-card h4 { color: var(--error); }
+
+/* === VOICE & TONE === */
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.voice-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.voice-card h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.voice-card .cn-label {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.8rem;
+  color: var(--flame-core);
+  margin-bottom: 0.75rem;
+}
+
+.voice-card p {
+  font-size: 0.88rem;
+  color: var(--starlight);
+  line-height: 1.6;
+}
+
+/* === APPLICATION === */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.app-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+}
+
+.app-preview {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-info {
+  padding: 1.25rem;
+}
+
+.app-info h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.app-info p {
+  font-size: 0.78rem;
+  color: var(--warm-gray);
+}
+
+/* === TAGLINE === */
+.tagline-section {
+  text-align: center;
+  padding: 8rem 3rem;
+  position: relative;
+}
+
+.tagline-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(255,107,53,0.06) 0%, transparent 60%);
+}
+
+.tagline-en {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+
+.tagline-cn {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--starlight);
+  position: relative;
+  z-index: 1;
+}
+
+/* === FOOTER === */
+footer {
+  padding: 3rem;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: var(--mid-gray);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .essence-grid, .color-grid, .app-grid { grid-template-columns: 1fr 1fr; }
+  .logo-showcase { grid-template-columns: 1fr; }
+  .usage-grid, .voice-grid { grid-template-columns: 1fr; }
+  .type-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  nav { padding: 1rem 1.5rem; }
+  .section { padding: 4rem 1.5rem; }
+  nav .nav-links { display: none; }
+}
+
+@media (max-width: 600px) {
+  .essence-grid, .color-grid { grid-template-columns: 1fr; }
+}
+
+/* === PATTERN SECTION === */
+.pattern-strip {
+  height: 200px;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pattern-strip.gradient-mesh {
+  background: linear-gradient(135deg, var(--cosmos-deep) 0%, var(--cosmos-mid) 30%, var(--flame-core) 60%, var(--flame-glow) 80%, var(--aurora-teal) 100%);
+}
+
+.pattern-strip .overlay-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* === MOTION PRINCIPLES === */
+.motion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.motion-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.motion-demo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--flame-core);
+  margin: 0 auto 1.25rem;
+}
+
+.motion-card:nth-child(1) .motion-demo {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.motion-card:nth-child(2) .motion-demo {
+  animation: orbit 3s linear infinite;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.motion-card:nth-child(3) .motion-demo {
+  animation: morph 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,107,53,0.4); }
+  50% { box-shadow: 0 0 30px 10px rgba(255,107,53,0.15); }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(25px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(25px) rotate(-360deg); }
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 50%; }
+  25% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  50% { border-radius: 50% 50% 30% 70% / 70% 30% 50% 50%; }
+  75% { border-radius: 70% 30% 50% 50% / 50% 50% 70% 30%; }
+}
+
+.motion-card h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.motion-card p {
+  font-size: 0.8rem;
+  color: var(--starlight);
+}
+
+/* Spacing utility */
+.mb-2 { margin-bottom: 2rem; }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo-text">Meta-Create</div>
+  <ul class="nav-links">
+    <li><a href="#essence">Essence</a></li>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#motion">Motion</a></li>
+    <li><a href="#applications">Applications</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Brand Identity Guide — v1.0 — 2026</div>
+  <h1><span class="gradient-text">Meta-Create</span></h1>
+  <p class="hero-sub">From Meta-Point, To Infinite Possibilities.</p>
+  <p class="hero-chinese">回归生命元点，创造无限可能。</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- BRAND ESSENCE -->
+<section class="section" id="essence">
+  <div class="section-label">01 — Brand Essence</div>
+  <div class="section-title">Who We Are</div>
+  <p class="section-desc">
+    Meta-Create is a global ecosystem empowering young people to discover their inner fire and become creators. Built on three pillars — Awareness, Connection, and Creation — we bridge self-exploration with real-world impact.
+  </p>
+
+  <div class="essence-grid">
+    <div class="essence-card">
+      <div class="essence-icon">🔥</div>
+      <h3>Awareness</h3>
+      <div class="cn">觉察</div>
+      <p>Self-discovery is the anchor point. Through mindfulness, life design, and first-principles thinking, we help creators find their inner compass before building outward.</p>
+    </div>
+    <div class="essence-card">
+      <div class="essence-icon">🌐</div>
+      <h3>Connection</h3>
+      <div class="cn">连接</div>
+      <p>Deep bonds, not surface networking. We create spaces where souls collide — through Socratic dialogues, co-creation sprints, and cross-cultural collaboration across continents.</p>
+    </div>
+    <div class="essence-card">
+      <div class="essence-icon">⚡</div>
+      <h3>Creation</h3>
+      <div class="cn">创造</div>
+      <p>Ship real things. From 48-hour hackathons to semester-long incubations, every participant leaves with a tangible prototype — not just inspiration, but a product.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <div class="palette-title">Core Values</div>
+    <div class="essence-grid">
+      <div class="essence-card">
+        <h3>Courage Over Comfort</h3>
+        <div class="cn">勇气优于舒适</div>
+        <p>We celebrate the "unrealistic" dreamers. Real change starts with those who dare to challenge the status quo.</p>
+      </div>
+      <div class="essence-card">
+        <h3>Humanity in Tech</h3>
+        <div class="cn">科技中的人文</div>
+        <p>AI is a tool, not a replacement. We champion perception, empathy, and creativity — the irreplaceably human.</p>
+      </div>
+      <div class="essence-card">
+        <h3>Build, Don't Talk</h3>
+        <div class="cn">创造而非空谈</div>
+        <p>Every workshop ends with output. Every camp ends with prototypes. We deliver, not discuss.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LOGO -->
+<section class="section" id="logo">
+  <div class="section-label">02 — Logo System</div>
+  <div class="section-title">The Meta-Create Mark</div>
+  <p class="section-desc">
+    The logo combines an abstract flame/origin-point mark with the wordmark. The flame symbolizes the "inner fire" (内在心火) we ignite in every creator — emerging from a single meta-point and expanding infinitely.
+  </p>
+
+  <div class="logo-showcase">
+    <!-- Dark background logo -->
+    <div class="logo-box dark">
+      <div class="label">Primary — Dark Background</div>
+      <svg class="logo-svg" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- Flame/Origin Mark -->
+        <g transform="translate(10, 10)">
+          <!-- Outer glow -->
+          <circle cx="50" cy="50" r="42" fill="none" stroke="url(#flameGrad1)" stroke-width="1.5" opacity="0.3"/>
+          <!-- Inner flame shapes -->
+          <path d="M50 12 C55 30, 72 35, 72 52 C72 64, 62 75, 50 78 C38 75, 28 64, 28 52 C28 35, 45 30, 50 12Z" fill="url(#flameGrad2)" opacity="0.9"/>
+          <path d="M50 28 C53 38, 62 42, 62 52 C62 60, 57 66, 50 68 C43 66, 38 60, 38 52 C38 42, 47 38, 50 28Z" fill="url(#flameGrad3)"/>
+          <!-- Center dot — the "meta point" -->
+          <circle cx="50" cy="52" r="5" fill="#FFFFFF" opacity="0.95"/>
+        </g>
+        <!-- Wordmark -->
+        <text x="120" y="48" font-family="Sora, sans-serif" font-weight="700" font-size="30" fill="#FFFFFF" letter-spacing="1">META</text>
+        <text x="120" y="82" font-family="Sora, sans-serif" font-weight="300" font-size="30" fill="#FF6B35" letter-spacing="3">CREATE</text>
+        <!-- Tagline -->
+        <text x="120" y="105" font-family="Space Mono, monospace" font-size="8.5" fill="#A8B4E0" letter-spacing="2">FROM META-POINT, TO INFINITE POSSIBILITIES</text>
+        <!-- Gradients -->
+        <defs>
+          <linearGradient id="flameGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF6B35"/>
+            <stop offset="100%" stop-color="#00C9A7"/>
+          </linearGradient>
+          <linearGradient id="flameGrad2" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#FF8C42"/>
+            <stop offset="40%" stop-color="#FF6B35"/>
+            <stop offset="100%" stop-color="#E85D26"/>
+          </linearGradient>
+          <linearGradient id="flameGrad3" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#FFA559"/>
+            <stop offset="100%" stop-color="#FF6B35"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- Light background logo -->
+    <div class="logo-box light">
+      <div class="label">Primary — Light Background</div>
+      <svg class="logo-svg" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(10, 10)">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="url(#flameGrad1L)" stroke-width="1.5" opacity="0.25"/>
+          <path d="M50 12 C55 30, 72 35, 72 52 C72 64, 62 75, 50 78 C38 75, 28 64, 28 52 C28 35, 45 30, 50 12Z" fill="url(#flameGrad2L)" opacity="0.9"/>
+          <path d="M50 28 C53 38, 62 42, 62 52 C62 60, 57 66, 50 68 C43 66, 38 60, 38 52 C38 42, 47 38, 50 28Z" fill="url(#flameGrad3L)"/>
+          <circle cx="50" cy="52" r="5" fill="#0A0E27" opacity="0.9"/>
+        </g>
+        <text x="120" y="48" font-family="Sora, sans-serif" font-weight="700" font-size="30" fill="#0A0E27" letter-spacing="1">META</text>
+        <text x="120" y="82" font-family="Sora, sans-serif" font-weight="300" font-size="30" fill="#E85D26" letter-spacing="3">CREATE</text>
+        <text x="120" y="105" font-family="Space Mono, monospace" font-size="8.5" fill="#6B6560" letter-spacing="2">FROM META-POINT, TO INFINITE POSSIBILITIES</text>
+        <defs>
+          <linearGradient id="flameGrad1L" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#E85D26"/>
+            <stop offset="100%" stop-color="#00C9A7"/>
+          </linearGradient>
+          <linearGradient id="flameGrad2L" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#FF8C42"/>
+            <stop offset="40%" stop-color="#FF6B35"/>
+            <stop offset="100%" stop-color="#E85D26"/>
+          </linearGradient>
+          <linearGradient id="flameGrad3L" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#FFA559"/>
+            <stop offset="100%" stop-color="#FF6B35"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Logo Rules -->
+  <div class="usage-grid">
+    <div class="usage-card do-card">
+      <h4>✓ Do</h4>
+      <ul>
+        <li>Use on solid backgrounds with sufficient contrast</li>
+        <li>Maintain clear space equal to the mark's height on all sides</li>
+        <li>Scale proportionally — minimum 80px width for digital</li>
+        <li>Use the monochrome white version on busy/photo backgrounds</li>
+        <li>Pair the icon-only mark for favicons, app icons, and social avatars</li>
+      </ul>
+    </div>
+    <div class="usage-card dont-card">
+      <h4>✗ Don't</h4>
+      <ul>
+        <li>Rotate, skew, or distort the logo</li>
+        <li>Change the flame gradient colors</li>
+        <li>Place on low-contrast or clashing backgrounds</li>
+        <li>Add drop shadows, outlines, or effects</li>
+        <li>Rearrange the mark and wordmark relationship</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COLOR PALETTE -->
+<section class="section" id="colors">
+  <div class="section-label">03 — Color System</div>
+  <div class="section-title">Our Palette</div>
+  <p class="section-desc">
+    The palette draws from two worlds: the warmth of inner fire (flame tones) and the vastness of possibility (cosmic depth + aurora accents). Together they express both grounded passion and limitless exploration.
+  </p>
+
+  <!-- Primary -->
+  <div class="palette-section">
+    <div class="palette-title">Primary — Flame 火焰</div>
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #FF6B35;"></div>
+        <div class="color-info">
+          <div class="color-name">Flame Core</div>
+          <div class="color-hex">#FF6B35</div>
+          <div class="color-cn">焰心橙 — 主色</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #FF8C42;"></div>
+        <div class="color-info">
+          <div class="color-name">Flame Bright</div>
+          <div class="color-hex">#FF8C42</div>
+          <div class="color-cn">明焰橙</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #FFA559;"></div>
+        <div class="color-info">
+          <div class="color-name">Flame Glow</div>
+          <div class="color-hex">#FFA559</div>
+          <div class="color-cn">辉焰金</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #E85D26;"></div>
+        <div class="color-info">
+          <div class="color-name">Ember</div>
+          <div class="color-hex">#E85D26</div>
+          <div class="color-cn">炽火红</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secondary -->
+  <div class="palette-section">
+    <div class="palette-title">Secondary — Cosmos 星宇</div>
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #0A0E27;"></div>
+        <div class="color-info">
+          <div class="color-name">Cosmos Deep</div>
+          <div class="color-hex">#0A0E27</div>
+          <div class="color-cn">深渊蓝 — 主背景</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #141B3D;"></div>
+        <div class="color-info">
+          <div class="color-name">Cosmos Mid</div>
+          <div class="color-hex">#141B3D</div>
+          <div class="color-cn">星际蓝</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #1E2A5E;"></div>
+        <div class="color-info">
+          <div class="color-name">Cosmos Light</div>
+          <div class="color-hex">#1E2A5E</div>
+          <div class="color-cn">远星蓝</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #A8B4E0;"></div>
+        <div class="color-info">
+          <div class="color-name">Starlight</div>
+          <div class="color-hex">#A8B4E0</div>
+          <div class="color-cn">星光银</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accent -->
+  <div class="palette-section">
+    <div class="palette-title">Accent — Aurora 极光</div>
+    <div class="color-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #00C9A7;"></div>
+        <div class="color-info">
+          <div class="color-name">Aurora Teal</div>
+          <div class="color-hex">#00C9A7</div>
+          <div class="color-cn">极光翠 — 成功/连接</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #00D4FF;"></div>
+        <div class="color-info">
+          <div class="color-name">Aurora Cyan</div>
+          <div class="color-hex">#00D4FF</div>
+          <div class="color-cn">极光蓝 — 信息/科技</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #845EC2;"></div>
+        <div class="color-info">
+          <div class="color-name">Aurora Violet</div>
+          <div class="color-hex">#845EC2</div>
+          <div class="color-cn">极光紫 — 想象/未来</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Neutrals -->
+  <div class="palette-section">
+    <div class="palette-title">Neutrals — 中性色</div>
+    <div class="color-grid" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,0.1);"></div>
+        <div class="color-info">
+          <div class="color-name">White</div>
+          <div class="color-hex">#FFFFFF</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #F7F5F2;"></div>
+        <div class="color-info">
+          <div class="color-name">Off-White</div>
+          <div class="color-hex">#F7F5F2</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #B8AFA6;"></div>
+        <div class="color-info">
+          <div class="color-name">Warm Gray</div>
+          <div class="color-hex">#B8AFA6</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #6B6560;"></div>
+        <div class="color-info">
+          <div class="color-name">Mid Gray</div>
+          <div class="color-hex">#6B6560</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #2D2926;"></div>
+        <div class="color-info">
+          <div class="color-name">Charcoal</div>
+          <div class="color-hex">#2D2926</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gradient -->
+  <div class="palette-section">
+    <div class="palette-title">Signature Gradient</div>
+    <div class="pattern-strip gradient-mesh">
+      <span class="overlay-text">Cosmos → Flame → Aurora — Primary Brand Gradient</span>
+    </div>
+    <p style="font-size: 0.85rem; color: var(--starlight);">
+      <code style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; font-family: 'Space Mono', monospace; font-size: 0.75rem;">
+        linear-gradient(135deg, #0A0E27, #141B3D, #FF6B35, #FFA559, #00C9A7)
+      </code>
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TYPOGRAPHY -->
+<section class="section" id="typography">
+  <div class="section-label">04 — Typography</div>
+  <div class="section-title">Type System</div>
+  <p class="section-desc">
+    A four-font system: Sora for body (geometric, modern, approachable), DM Serif Display for editorial headlines, Space Mono for data/labels, and Noto Sans SC for bilingual Chinese support.
+  </p>
+
+  <div class="type-specimen">
+    <div class="type-row">
+      <div class="type-meta">
+        DM Serif Display<br>
+        <span class="weight">Headlines</span>
+      </div>
+      <div class="type-sample-display" style="font-size: 3rem;">
+        Build Worlds, Not Resumes
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        Sora<br>
+        <span class="weight">Body — 700</span>
+      </div>
+      <div class="type-sample-sora" style="font-size: 1.5rem; font-weight: 700;">
+        From Meta-Point, To Infinite Possibilities.
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        Sora<br>
+        <span class="weight">Body — 400</span>
+      </div>
+      <div class="type-sample-sora" style="font-size: 1rem;">
+        We ignite inner fire, empowering youth to become creators. Through awareness, connection, and creation, we unlock human potential in the age of AI.
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        Space Mono<br>
+        <span class="weight">Data / Labels</span>
+      </div>
+      <div class="type-sample-mono" style="font-size: 0.85rem; letter-spacing: 2px;">
+        48H HACKATHON — 200+ CREATORS — 50 COUNTRIES — 3 CONTINENTS
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        Noto Sans SC<br>
+        <span class="weight">Chinese — 700</span>
+      </div>
+      <div class="type-sample-noto" style="font-size: 1.8rem; font-weight: 700;">
+        回归生命元点，创造无限可能
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        Noto Sans SC<br>
+        <span class="weight">Chinese — 400</span>
+      </div>
+      <div class="type-sample-noto" style="font-size: 1rem;">
+        点燃人们的内在心火，成为真正的创造者。我们提出"觉察、连接、创造"作为三大支柱，希望点亮感知力、人文精神和对前沿技术的敏锐。
+      </div>
+    </div>
+  </div>
+
+  <!-- Type scale -->
+  <div class="palette-title">Type Scale</div>
+  <div style="margin-top: 1rem;">
+    <div style="font-family: 'DM Serif Display', serif; font-size: 3rem; margin-bottom: 0.5rem;">H1 — 48px / 3rem</div>
+    <div style="font-family: 'DM Serif Display', serif; font-size: 2.25rem; margin-bottom: 0.5rem;">H2 — 36px / 2.25rem</div>
+    <div style="font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">H3 — 24px / 1.5rem</div>
+    <div style="font-family: 'Sora', sans-serif; font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">H4 — 18px / 1.125rem</div>
+    <div style="font-family: 'Sora', sans-serif; font-size: 1rem; margin-bottom: 0.5rem;">Body — 16px / 1rem</div>
+    <div style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--warm-gray); letter-spacing: 2px;">LABEL — 12px / 0.75rem</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VOICE & TONE -->
+<section class="section" id="voice">
+  <div class="section-label">05 — Voice & Tone</div>
+  <div class="section-title">How We Speak</div>
+  <p class="section-desc">
+    Meta-Create speaks with the warmth of a campfire and the urgency of a launch countdown. We are bold but never arrogant, visionary but grounded, poetic but action-oriented.
+  </p>
+
+  <div class="voice-grid">
+    <div class="voice-card">
+      <h4>Bold & Visionary</h4>
+      <div class="cn-label">大胆 · 有远见</div>
+      <p>We don't hedge. We declare. "The greatest revolution of this era is not AI replacing humans — it's humans finally becoming themselves." We speak in manifestos, not memos.</p>
+    </div>
+    <div class="voice-card">
+      <h4>Warm & Inviting</h4>
+      <div class="cn-label">温暖 · 包容</div>
+      <p>We use "we" and "you," never cold institutional language. Every piece of copy should feel like a letter from a friend who believes in you more than you believe in yourself.</p>
+    </div>
+    <div class="voice-card">
+      <h4>Action-Oriented</h4>
+      <div class="cn-label">行动导向</div>
+      <p>"Stop predicting. Start building." "Stop waiting. Start designing." We end every communication with a clear next step. We don't inspire passively — we mobilize.</p>
+    </div>
+    <div class="voice-card">
+      <h4>Poetically Technical</h4>
+      <div class="cn-label">诗意与理性交融</div>
+      <p>We bridge humanities and technology in our language. A hackathon is a "creation laboratory." Self-discovery is "finding your anchor point." We make the technical feel human and the philosophical feel actionable.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <div class="palette-title">Key Phrases & Vocabulary</div>
+    <div class="usage-grid">
+      <div class="usage-card" style="border-color: rgba(255,107,53,0.15);">
+        <h4 style="color: var(--flame-core);">We Say</h4>
+        <ul>
+          <li>"Creators" (not students/participants)</li>
+          <li>"Ship it" / "Build it" (not plan or discuss)</li>
+          <li>"Inner fire" / "内在心火" (our ignition metaphor)</li>
+          <li>"Meta-point" / "元点" (the origin of everything)</li>
+          <li>"New continent" / "新大陆" (what we're building)</li>
+          <li>"Anchor point" / "锚点" (your inner compass)</li>
+        </ul>
+      </div>
+      <div class="usage-card" style="border-color: rgba(255,255,255,0.06);">
+        <h4 style="color: var(--starlight);">We Avoid</h4>
+        <ul>
+          <li>"Training" / "培训" — we're not a school</li>
+          <li>"Elite" / "精英" — we're anti-elitist</li>
+          <li>"Networking" — we build bonds, not contacts</li>
+          <li>"Disruption" — overused tech jargon</li>
+          <li>"Content" when meaning creation/art</li>
+          <li>Corporate buzzwords and passive voice</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MOTION -->
+<section class="section" id="motion">
+  <div class="section-label">06 — Motion & Interaction</div>
+  <div class="section-title">How We Move</div>
+  <p class="section-desc">
+    Movement in Meta-Create's brand reflects organic energy — flames that breathe, stars that pulse, ideas that expand outward from a single point.
+  </p>
+
+  <div class="motion-grid">
+    <div class="motion-card">
+      <div class="motion-demo"></div>
+      <h4>Pulse & Breathe</h4>
+      <p>CTAs and key elements glow with a slow, rhythmic pulse — like embers breathing in the dark.</p>
+    </div>
+    <div class="motion-card">
+      <div style="width:60px;height:60px;margin:0 auto 1.25rem;position:relative;">
+        <div style="width:60px;height:60px;border-radius:50%;border:1px solid rgba(255,107,53,0.3);position:absolute;"></div>
+        <div class="motion-demo" style="position:absolute;top:20px;left:20px;"></div>
+      </div>
+      <h4>Orbit & Connect</h4>
+      <p>Related elements orbit around focal points — reflecting connection and the building of creator networks.</p>
+    </div>
+    <div class="motion-card">
+      <div class="motion-demo"></div>
+      <h4>Morph & Evolve</h4>
+      <p>Shapes transform fluidly — circle to flame to star — symbolizing the creative transformation process.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <div class="palette-title">Animation Parameters</div>
+    <div style="font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--starlight); line-height: 2;">
+      <div>Easing: <span style="color: var(--flame-core);">cubic-bezier(0.25, 0.46, 0.45, 0.94)</span> — organic, never robotic</div>
+      <div>Duration: <span style="color: var(--flame-core);">300-600ms</span> for interactions, <span style="color: var(--flame-core);">2-4s</span> for ambient</div>
+      <div>Page transitions: <span style="color: var(--flame-core);">fade + upward drift (30px)</span></div>
+      <div>Hover states: <span style="color: var(--flame-core);">translateY(-4px) + border glow</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- APPLICATIONS -->
+<section class="section" id="applications">
+  <div class="section-label">07 — Applications</div>
+  <div class="section-title">Brand in Action</div>
+  <p class="section-desc">
+    How the brand system comes alive across touchpoints — from digital platforms to physical events.
+  </p>
+
+  <div class="app-grid">
+    <div class="app-card">
+      <div class="app-preview" style="background: linear-gradient(135deg, #0A0E27, #1E2A5E);">
+        <div style="text-align:center; padding:1rem;">
+          <div style="font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:3px;color:var(--flame-core);margin-bottom:0.5rem;">FUTURE WORLD LAB</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#fff;">2050.EXE</div>
+          <div style="font-size:0.7rem;color:var(--starlight);margin-top:0.3rem;">48H Creative Hackathon</div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Event Poster</h4>
+        <p>Dark cosmos bg + flame accent type</p>
+      </div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-preview" style="background: var(--off-white);">
+        <div style="text-align:center; padding:1rem;">
+          <div style="font-family:'Sora',sans-serif;font-size:0.7rem;font-weight:700;color:var(--charcoal);letter-spacing:2px;">META-CREATE</div>
+          <div style="width:40px;height:2px;background:var(--flame-core);margin:0.5rem auto;"></div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;color:var(--mid-gray);">青年元创计划</div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Business Card</h4>
+        <p>Minimal light mode with flame accent</p>
+      </div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-preview" style="background: linear-gradient(180deg, #0A0E27 0%, #141B3D 50%, #FF6B35 200%);">
+        <div style="text-align:center;padding:1rem;">
+          <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;margin-bottom:0.3rem;">Space Base Challenge</div>
+          <div style="font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:2px;color:var(--aurora-teal);">BEIJING · NEW YORK · APRIL 2026</div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>International Event</h4>
+        <p>Cosmos base + aurora accent for global</p>
+      </div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-preview" style="background:#141B3D;">
+        <div style="padding:1.5rem;">
+          <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+            <div style="width:30px;height:30px;border-radius:8px;background:var(--flame-core);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#fff;">M</div>
+            <div>
+              <div style="font-size:0.7rem;font-weight:600;">Meta-Create</div>
+              <div style="font-size:0.55rem;color:var(--warm-gray);">@metacreate.official</div>
+            </div>
+          </div>
+          <div style="font-size:0.65rem;color:var(--starlight);line-height:1.5;">🔥 We're not recruiting — we're finding co-creators. The boat-building starts now.</div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Social Media</h4>
+        <p>Flame icon + cosmos card bg</p>
+      </div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-preview" style="background: linear-gradient(135deg, #FF6B35, #FFA559);">
+        <div style="text-align:center;padding:1rem;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">🧭</div>
+          <div style="font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:700;color:#fff;">POLARIS</div>
+          <div style="font-size:0.65rem;color:rgba(255,255,255,0.8);">北极星计划 · 5-Week Life Design</div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Sub-brand: Polaris</h4>
+        <p>Warm flame gradient for growth programs</p>
+      </div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-preview" style="background:#0A0E27;display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:80px;border-radius:20px;background:linear-gradient(135deg,#FF6B35,#FFA559);display:flex;align-items:center;justify-content:center;">
+          <svg width="40" height="40" viewBox="0 0 100 100">
+            <path d="M50 10 C55 30, 72 35, 72 52 C72 64, 62 75, 50 78 C38 75, 28 64, 28 52 C28 35, 45 30, 50 10Z" fill="#fff" opacity="0.95"/>
+            <circle cx="50" cy="52" r="6" fill="#FF6B35"/>
+          </svg>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>App Icon</h4>
+        <p>Flame mark on gradient, rounded corners</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TAGLINE -->
+<section class="tagline-section">
+  <div class="tagline-en">From Meta-Point, To Infinite Possibilities.</div>
+  <div class="tagline-cn">回归生命元点，创造无限可能。</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Meta-Create Brand Identity Guide v1.0 — February 2026</p>
+  <p style="margin-top:0.5rem; color: var(--flame-core); font-size: 0.75rem;">青年元创计划 · Youth Meta-Create Initiative</p>
+</footer>
+
+</body>
+</html>
